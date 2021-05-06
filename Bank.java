@@ -1,7 +1,11 @@
 package banking;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author wpollock
@@ -11,6 +15,8 @@ public class Bank {
     private final String NAME;
     private final Map<String, Customer> customers = new HashMap<>();
     private double insufficientFundsPenalty = 10.00;  // Default, in dollars
+    private String getName;
+    private Object not_supported;
 
     /** Creates a new Bank object with the given name.
      *
@@ -124,4 +130,54 @@ public class Bank {
     public List<Account> getCustomersAccounts (String customerId) {
         return null;  // Stub
     }
+
+    public class Test {
+
+        @BeforeAll
+        void Bank(){
+            System.out.println("@BeforeAll tested");
+
+        }
+        @BeforeEach
+        void BankTest(){
+            System.out.println("@BeforeEach tested");
+
+        }
+        @AfterAll
+        void BankTest2(){
+            System.out.println("AfterAll tested");
+        }
+        @AfterEach
+        void BankTest3(){
+            System.out.println("AfterEach tested");
+        }
+
+
+
+
+        void shouldThrowException() {
+            Throwable exception = assertThrows();
+
+            throw new UnsupportedOperationException("Not supported");
+
+        }
+    }
+
+    private Throwable assertThrows() {
+        return null;
+    }
+
+    private void assertEquals(String getName) {
+        this.getName = getName;
+    }
+
+    private void assertThrows(Object not_supported) {
+
+        this.not_supported = not_supported;
+    }
+
+
+
 }
+
+

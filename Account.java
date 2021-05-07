@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.*;
 import java.util.*;
 import java.util.stream.Collectors;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  *
@@ -16,6 +20,8 @@ public abstract class Account implements Comparable<Account> {
     protected final String accountId;
     protected String description;
     protected final LocalDateTime creationDate;
+    private String getName;
+    private Object not_supported;
     // protected StatementCycle statementCycle; // An enum representing any
     //                                          // possible statement cycle
     protected double balance;
@@ -84,6 +90,51 @@ public abstract class Account implements Comparable<Account> {
      */
     public List<Transaction> getTransactions () {
         return null;  // Stub
+    }
+    
+    public class Test {
+
+        @BeforeAll
+        void Account(){
+            System.out.println("@BeforeAll tested");
+
+        }
+        @BeforeEach
+        void AccountTest(){
+            System.out.println("@BeforeEach tested");
+
+        }
+        @AfterAll
+        void AccountTest2(){
+            System.out.println("AfterAll tested");
+        }
+        @AfterEach
+        void AccountTest3(){
+            System.out.println("AfterEach tested");
+        }
+
+
+
+
+        void shouldThrowException() {
+            Throwable exception = assertThrows();
+
+            throw new UnsupportedOperationException("Not supported");
+
+        }
+    }
+
+    private Throwable assertThrows() {
+        return null;
+    }
+
+    private void assertEquals(String getName) {
+        this.getName = getName;
+    }
+
+    private void assertThrows(Object not_supported) {
+
+        this.not_supported = not_supported;
     }
 
     /**

@@ -29,6 +29,9 @@ public class Customer implements Comparable<Customer> {
         // Stub
     }
 
+    public Customer(String tatiana) {
+    }
+
     /**
      * @return the bank
      */
